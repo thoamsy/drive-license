@@ -1,0 +1,144 @@
+[
+  {
+    "id": "s4_001",
+    "subject": "subject4",
+    "chapterId": "s4c1",
+    "type": "judge",
+    "content": "驾驶机动车遇到老年人行动迟缓横穿道路时，应及时鸣喇叭催促。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "B",
+    "explanation": "遇到老年人横穿道路时，应减速慢行，必要时停车让行，而不是鸣喇叭催促。"
+  },
+  {
+    "id": "s4_002",
+    "subject": "subject4",
+    "chapterId": "s4c1",
+    "type": "single",
+    "content": "驾驶机动车遇到学生队伍横穿道路时，应当（）。",
+    "options": [
+      { "key": "A", "text": "鸣喇叭催促" },
+      { "key": "B", "text": "绕道行驶" },
+      { "key": "C", "text": "停车让行" },
+      { "key": "D", "text": "继续行驶" }
+    ],
+    "answer": "C",
+    "explanation": "遇学生队伍横穿道路时，应停车让行，保障学生安全通过，体现文明驾驶。"
+  },
+  {
+    "id": "s4_003",
+    "subject": "subject4",
+    "chapterId": "s4c2",
+    "type": "single",
+    "content": "在雨天行车，下列哪种情况最危险？",
+    "options": [
+      { "key": "A", "text": "路面干燥" },
+      { "key": "B", "text": "小雨刚下" },
+      { "key": "C", "text": "大雨持续" },
+      { "key": "D", "text": "雨后转晴" }
+    ],
+    "answer": "B",
+    "explanation": "小雨刚下时，路面油脂被雨水浮起，摩擦系数最低，最为湿滑，危险性最大。"
+  },
+  {
+    "id": "s4_004",
+    "subject": "subject4",
+    "chapterId": "s4c2",
+    "type": "judge",
+    "content": "在浓雾天气中行车，应当开启雾灯和危险报警闪光灯。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "A",
+    "explanation": "在浓雾天气中行车，应开启雾灯和危险报警闪光灯（双闪），提高能见度，让其他驾驶人注意到本车。"
+  },
+  {
+    "id": "s4_005",
+    "subject": "subject4",
+    "chapterId": "s4c3",
+    "type": "single",
+    "content": "行车中发现左前轮突然爆胎，应当怎样处置？",
+    "options": [
+      { "key": "A", "text": "迅速向右打方向盘" },
+      { "key": "B", "text": "紧急制动" },
+      { "key": "C", "text": "紧握方向盘，缓慢减速，靠边停车" },
+      { "key": "D", "text": "迅速向左打方向盘" }
+    ],
+    "answer": "C",
+    "explanation": "爆胎时，应紧握方向盘，保持车辆稳定，缓慢减速（不要紧急制动），靠边安全停车。"
+  },
+  {
+    "id": "s4_006",
+    "subject": "subject4",
+    "chapterId": "s4c1",
+    "type": "judge",
+    "content": "连续驾驶机动车超过4小时，应休息不少于20分钟。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "A",
+    "explanation": "根据规定，连续驾驶机动车超过4小时须停车休息，且休息时间不少于20分钟，防止疲劳驾驶。"
+  },
+  {
+    "id": "s4_007",
+    "subject": "subject4",
+    "chapterId": "s4c2",
+    "type": "single",
+    "content": "在山区道路下坡行驶时，不正确的做法是（）。",
+    "options": [
+      { "key": "A", "text": "使用发动机制动辅助控制车速" },
+      { "key": "B", "text": "长时间使用脚制动" },
+      { "key": "C", "text": "提前降挡" },
+      { "key": "D", "text": "保持低速行驶" }
+    ],
+    "answer": "B",
+    "explanation": "在下坡路长时间使用脚制动会导致制动器过热失效，正确做法是利用发动机制动（低挡）来控制车速。"
+  },
+  {
+    "id": "s4_008",
+    "subject": "subject4",
+    "chapterId": "s4c3",
+    "type": "single",
+    "content": "车辆在行驶中制动失灵时，应当（）。",
+    "options": [
+      { "key": "A", "text": "迅速关闭发动机" },
+      { "key": "B", "text": "利用手制动减速，寻找安全地点停车" },
+      { "key": "C", "text": "立即跳车" },
+      { "key": "D", "text": "急打方向盘向路边撞击" }
+    ],
+    "answer": "B",
+    "explanation": "制动失灵时，应保持镇静，利用手制动（驻车制动）辅助减速，同时寻找安全地点（如上坡道、沙堆）使车辆停下。"
+  },
+  {
+    "id": "s4_009",
+    "subject": "subject4",
+    "chapterId": "s4c1",
+    "type": "judge",
+    "content": "驾驶人饮酒后感觉良好，没有明显不适，可以驾车。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "B",
+    "explanation": "饮酒后无论感觉如何，酒精都会影响驾驶人的判断力、反应能力和操控能力，严禁酒后驾车。"
+  },
+  {
+    "id": "s4_010",
+    "subject": "subject4",
+    "chapterId": "s4c2",
+    "type": "single",
+    "content": "车辆涉水过浅滩后，应当（）。",
+    "options": [
+      { "key": "A", "text": "低速行驶并轻踏制动踏板，使制动摩擦片发热以烘干水分" },
+      { "key": "B", "text": "不必检查制动性能，继续正常行驶" },
+      { "key": "C", "text": "等待一段时间再行驶" },
+      { "key": "D", "text": "加速行驶以甩掉水分" }
+    ],
+    "answer": "A",
+    "explanation": "车辆涉水后，制动器可能因受潮而失灵，应低速行驶并轻踏制动，利用摩擦热烘干水分，恢复制动效果。"
+  }
+]

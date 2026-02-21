@@ -1,0 +1,288 @@
+[
+  {
+    "id": "s1_001",
+    "subject": "subject1",
+    "chapterId": "s1c1",
+    "type": "single",
+    "content": "驾驶机动车在道路上行驶，应当遵守（）。",
+    "options": [
+      { "key": "A", "text": "道路交通安全法律、法规的规定" },
+      { "key": "B", "text": "驾驶人自己的习惯" },
+      { "key": "C", "text": "乘车人的要求" },
+      { "key": "D", "text": "货主的指令" }
+    ],
+    "answer": "A",
+    "explanation": "根据《道路交通安全法》第7条，驾驶机动车在道路上行驶，应当遵守道路交通安全法律、法规的规定。"
+  },
+  {
+    "id": "s1_002",
+    "subject": "subject1",
+    "chapterId": "s1c1",
+    "type": "judge",
+    "content": "道路交通安全法规定，驾驶机动车应当依法取得机动车驾驶证。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "A",
+    "explanation": "根据《道路交通安全法》第19条，驾驶机动车，应当依法取得机动车驾驶证。"
+  },
+  {
+    "id": "s1_003",
+    "subject": "subject1",
+    "chapterId": "s1c2",
+    "type": "single",
+    "content": "申请机动车驾驶证，申请人的年龄应当符合（）的规定。",
+    "options": [
+      { "key": "A", "text": "公安部" },
+      { "key": "B", "text": "交通运输部" },
+      { "key": "C", "text": "国务院" },
+      { "key": "D", "text": "道路交通安全法律、法规" }
+    ],
+    "answer": "D",
+    "explanation": "申请机动车驾驶证，申请人的年龄应当符合道路交通安全法律、法规的规定。"
+  },
+  {
+    "id": "s1_004",
+    "subject": "subject1",
+    "chapterId": "s1c2",
+    "type": "single",
+    "content": "小型汽车（C1）准驾车型的申请人年龄条件是（）。",
+    "options": [
+      { "key": "A", "text": "18至70周岁" },
+      { "key": "B", "text": "18至60周岁" },
+      { "key": "C", "text": "18至65周岁" },
+      { "key": "D", "text": "20至60周岁" }
+    ],
+    "answer": "A",
+    "explanation": "申请小型汽车（C1）准驾车型，申请人的年龄应在18周岁以上，70周岁以下。"
+  },
+  {
+    "id": "s1_005",
+    "subject": "subject1",
+    "chapterId": "s1c3",
+    "type": "single",
+    "content": "在道路上行驶时，同向行驶的后车与前车之间应当保持（）安全距离。",
+    "options": [
+      { "key": "A", "text": "10米" },
+      { "key": "B", "text": "必要的" },
+      { "key": "C", "text": "50米" },
+      { "key": "D", "text": "100米" }
+    ],
+    "answer": "B",
+    "explanation": "在道路上行驶时，同向行驶的后车与前车之间应当保持必要的安全距离，具体距离根据车速和路况而定。"
+  },
+  {
+    "id": "s1_006",
+    "subject": "subject1",
+    "chapterId": "s1c4",
+    "type": "single",
+    "content": "绿色箭头灯亮时，表示（）。",
+    "options": [
+      { "key": "A", "text": "不准按箭头方向通行" },
+      { "key": "B", "text": "准许按箭头方向通行" },
+      { "key": "C", "text": "减速按箭头方向通行" },
+      { "key": "D", "text": "加速按箭头方向通行" }
+    ],
+    "answer": "B",
+    "explanation": "绿色箭头灯亮时，准许车辆按箭头所示方向通行。"
+  },
+  {
+    "id": "s1_007",
+    "subject": "subject1",
+    "chapterId": "s1c4",
+    "type": "judge",
+    "content": "黄灯持续闪烁时，表示警示，车辆、行人应当在确保安全的原则下通行。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "A",
+    "explanation": "黄灯持续闪烁是警示信号，车辆和行人应在确认安全后通行。"
+  },
+  {
+    "id": "s1_008",
+    "subject": "subject1",
+    "chapterId": "s1c5",
+    "type": "single",
+    "content": "超车时，应当（）。",
+    "options": [
+      { "key": "A", "text": "从被超车辆右侧超越" },
+      { "key": "B", "text": "从被超车辆左侧超越" },
+      { "key": "C", "text": "从被超车辆任意一侧超越" },
+      { "key": "D", "text": "鸣喇叭从右侧超越" }
+    ],
+    "answer": "B",
+    "explanation": "超车时，应当从被超车辆的左侧超越，并在确保安全的情况下进行。"
+  },
+  {
+    "id": "s1_009",
+    "subject": "subject1",
+    "chapterId": "s1c5",
+    "type": "judge",
+    "content": "驾驶机动车时，驾驶人可以拨打或接听手持电话。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "B",
+    "explanation": "驾驶机动车时，严禁拨打或接听手持电话，这是违法行为，会分散注意力，危及行车安全。"
+  },
+  {
+    "id": "s1_010",
+    "subject": "subject1",
+    "chapterId": "s1c5",
+    "type": "single",
+    "content": "在高速公路上行驶，最高车速不得超过（）。",
+    "options": [
+      { "key": "A", "text": "80km/h" },
+      { "key": "B", "text": "100km/h" },
+      { "key": "C", "text": "120km/h" },
+      { "key": "D", "text": "140km/h" }
+    ],
+    "answer": "C",
+    "explanation": "在高速公路上行驶，最高车速不得超过120km/h，最低车速不得低于60km/h。"
+  },
+  {
+    "id": "s1_011",
+    "subject": "subject1",
+    "chapterId": "s1c6",
+    "type": "judge",
+    "content": "机动车行驶前，驾驶人应当确认车辆技术状况良好，安全装置齐全有效。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "A",
+    "explanation": "出车前检查车辆技术状况是驾驶人的基本职责，确保车辆安全才能上路行驶。"
+  },
+  {
+    "id": "s1_012",
+    "subject": "subject1",
+    "chapterId": "s1c7",
+    "type": "single",
+    "content": "发生交通事故后，当事人逃逸的，交通事故的责任由（）承担。",
+    "options": [
+      { "key": "A", "text": "逃逸方" },
+      { "key": "B", "text": "对方" },
+      { "key": "C", "text": "双方共同" },
+      { "key": "D", "text": "保险公司" }
+    ],
+    "answer": "A",
+    "explanation": "发生交通事故后，当事人逃逸的，逃逸的当事人承担全部责任。"
+  },
+  {
+    "id": "s1_013",
+    "subject": "subject1",
+    "chapterId": "s1c3",
+    "type": "single",
+    "content": "在没有禁止掉头标志、标线的地点，机动车可以掉头，但（）不能掉头。",
+    "options": [
+      { "key": "A", "text": "在宽阔道路上" },
+      { "key": "B", "text": "在人行横道上" },
+      { "key": "C", "text": "交叉路口" },
+      { "key": "D", "text": "隧道前方200米处" }
+    ],
+    "answer": "B",
+    "explanation": "在人行横道、桥梁、急弯、坡道、隧道以及交叉路口禁止掉头。"
+  },
+  {
+    "id": "s1_014",
+    "subject": "subject1",
+    "chapterId": "s1c2",
+    "type": "judge",
+    "content": "驾驶人驾驶机动车上路行驶，必须随身携带机动车驾驶证。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "A",
+    "explanation": "驾驶机动车上路行驶，应当随身携带机动车驾驶证，以备交警查验。"
+  },
+  {
+    "id": "s1_015",
+    "subject": "subject1",
+    "chapterId": "s1c4",
+    "type": "single",
+    "content": "禁止通行标志的颜色是（）。",
+    "options": [
+      { "key": "A", "text": "蓝色圆形" },
+      { "key": "B", "text": "黄色三角形" },
+      { "key": "C", "text": "白底红圈红杠" },
+      { "key": "D", "text": "白底黑字" }
+    ],
+    "answer": "C",
+    "explanation": "禁令标志（禁止通行等）的颜色特征为白底红圈，部分有红杠，表示禁止或限制车辆、行人交通行为的标志。"
+  },
+  {
+    "id": "s1_016",
+    "subject": "subject1",
+    "chapterId": "s1c5",
+    "type": "judge",
+    "content": "夜间行车比白天行车危险性大。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "A",
+    "explanation": "夜间行车视线不良，灯光照射距离有限，驾驶人反应时间相对较短，行车危险性确实大于白天。"
+  },
+  {
+    "id": "s1_017",
+    "subject": "subject1",
+    "chapterId": "s1c1",
+    "type": "single",
+    "content": "以下哪种行为属于违法行为？",
+    "options": [
+      { "key": "A", "text": "在划有中心线的道路上，单向行驶" },
+      { "key": "B", "text": "酒后驾驶机动车" },
+      { "key": "C", "text": "靠右侧行驶" },
+      { "key": "D", "text": "遵守交通信号灯" }
+    ],
+    "answer": "B",
+    "explanation": "酒后驾驶机动车是违法行为，血液中酒精含量达到80mg/100mL以上为醉酒驾车，将被追究刑事责任。"
+  },
+  {
+    "id": "s1_018",
+    "subject": "subject1",
+    "chapterId": "s1c5",
+    "type": "single",
+    "content": "在冰雪路面上行驶，应当（）。",
+    "options": [
+      { "key": "A", "text": "适当提高车速" },
+      { "key": "B", "text": "适当加大与前车的距离" },
+      { "key": "C", "text": "紧随前车行驶" },
+      { "key": "D", "text": "频繁制动以防滑" }
+    ],
+    "answer": "B",
+    "explanation": "在冰雪路面上行驶，应当减速慢行，适当加大与前车的行驶距离，避免紧急制动。"
+  },
+  {
+    "id": "s1_019",
+    "subject": "subject1",
+    "chapterId": "s1c7",
+    "type": "single",
+    "content": "发生交通事故，造成人员伤亡的，应当（）。",
+    "options": [
+      { "key": "A", "text": "立即撤离现场" },
+      { "key": "B", "text": "立即抢救受伤人员，并迅速报警" },
+      { "key": "C", "text": "等待对方索赔" },
+      { "key": "D", "text": "只报警，不救人" }
+    ],
+    "answer": "B",
+    "explanation": "发生交通事故造成人员伤亡时，应立即抢救受伤人员，并迅速拨打120急救和110报警，同时保护现场。"
+  },
+  {
+    "id": "s1_020",
+    "subject": "subject1",
+    "chapterId": "s1c3",
+    "type": "judge",
+    "content": "机动车通过没有交通信号灯控制的路口时，应当减速慢行，并让行人先行。",
+    "options": [
+      { "key": "A", "text": "正确" },
+      { "key": "B", "text": "错误" }
+    ],
+    "answer": "A",
+    "explanation": "机动车通过没有交通信号灯控制的路口时，应当减速慢行，注意避让行人和其他车辆。"
+  }
+]

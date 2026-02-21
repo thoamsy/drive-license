@@ -1,0 +1,9 @@
+[
+  { "id": "s1c1", "subject": "subject1", "name": "道路交通安全法律、法规和规章", "order": 1 },
+  { "id": "s1c2", "subject": "subject1", "name": "机动车驾驶证申领和使用规定", "order": 2 },
+  { "id": "s1c3", "subject": "subject1", "name": "道路通行条件及通行规定", "order": 3 },
+  { "id": "s1c4", "subject": "subject1", "name": "道路交通信号", "order": 4 },
+  { "id": "s1c5", "subject": "subject1", "name": "安全行车、文明驾驶基础知识", "order": 5 },
+  { "id": "s1c6", "subject": "subject1", "name": "机动车基础知识", "order": 6 },
+  { "id": "s1c7", "subject": "subject1", "name": "紧急情况处置知识", "order": 7 }
+]
