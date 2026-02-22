@@ -30,6 +30,7 @@ function ExamPage() {
 
   if (status === 'idle') {
     return (
+      <div className="h-full overflow-y-auto">
       <div className="p-4 space-y-4">
         <div className="flex items-center gap-2 pt-2">
           <Link to="/subject/$id" params={{ id: subjectId }}>
@@ -69,11 +70,13 @@ function ExamPage() {
           </CardContent>
         </Card>
       </div>
+      </div>
     )
   }
 
   if (status === 'submitted') {
     return (
+      <div className="h-full overflow-y-auto">
       <div className="p-4 space-y-4">
         <div className="flex items-center gap-2 pt-2">
           <Link to="/subject/$id" params={{ id: subjectId }}>
@@ -142,6 +145,7 @@ function ExamPage() {
           })}
         </div>
       </div>
+      </div>
     )
   }
 
@@ -149,7 +153,7 @@ function ExamPage() {
   const currentQuestion = questions[currentIndex]
 
   return (
-    <div className="flex flex-col h-svh">
+    <div className="flex flex-col h-full">
       {/* Header */}
       <div className="flex items-center justify-between p-3 border-b border-border bg-background flex-shrink-0">
         <div className="flex items-center gap-1 text-sm font-medium">
@@ -225,7 +229,7 @@ function ExamPage() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-between p-4 border-t border-border bg-background flex-shrink-0">
+          <div className="flex items-center justify-between px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] border-t border-border bg-background flex-shrink-0">
             <Button
               variant="outline"
               onClick={() => setCurrentIndex((i) => Math.max(0, i - 1))}
