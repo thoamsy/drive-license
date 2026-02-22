@@ -1,8 +1,29 @@
 import { createRootRoute, Outlet, useLocation } from '@tanstack/react-router'
+import { useEffect } from 'react'
+import { Toaster, toast } from 'sonner'
+import { useRegisterSW } from 'virtual:pwa-register/react'
 import { BottomNav } from '@/components/BottomNav'
 
 // 练习/考试页自带沉浸式布局，不显示 app 底部导航
 const FULLSCREEN_RE = /\/(practice\/|exam$|mistakes$)/
+
+function PWAUpdateToast() {
+  const { needRefresh: [needRefresh], updateServiceWorker } = useRegisterSW()
+
+  useEffect(() => {
+    if (!needRefresh) return
+    toast('发现新版本', {
+      description: '刷新即可获得最新内容',
+      action: {
+        label: '立即刷新',
+        onClick: () => updateServiceWorker(true),
+      },
+      duration: Infinity,
+    })
+  }, [needRefresh, updateServiceWorker])
+
+  return null
+}
 
 function RootLayout() {
   const { pathname } = useLocation()
@@ -18,6 +39,8 @@ function RootLayout() {
         <Outlet />
       </main>
       {!isFullscreen && <BottomNav />}
+      <Toaster position="top-center" richColors />
+      <PWAUpdateToast />
     </div>
   )
 }
