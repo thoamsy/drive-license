@@ -69,7 +69,7 @@ export function usePractice({ subject, mode, chapterId }: UsePracticeOptions) {
         await db.practiceProgress.add({
           subject,
           mode,
-          chapterId,
+          chapterId: chapterId ?? '',
           currentIndex: index,
           questionIds: questions.map((q) => q.id),
           updatedAt: new Date(),
