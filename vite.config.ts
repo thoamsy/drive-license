@@ -65,4 +65,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-router': ['@tanstack/react-router'],
+          'vendor-ui': ['lucide-react', 'radix-ui', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          'vendor-db': ['dexie', 'dexie-react-hooks'],
+        },
+      },
+    },
+  },
 })

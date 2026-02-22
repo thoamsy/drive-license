@@ -12,7 +12,7 @@ export function BottomNav() {
   const location = useLocation()
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 max-w-lg mx-auto border-t border-border bg-background z-50">
+    <nav className="fixed bottom-0 left-0 right-0 max-w-lg mx-auto border-t border-border bg-background z-50 pb-[env(safe-area-inset-bottom)]">
       <div className="flex">
         {navItems.map((item) => {
           const Icon = item.icon
@@ -33,8 +33,6 @@ export function BottomNav() {
           )
         })}
       </div>
-      {/* Safe area bottom */}
-      <div className="h-safe-area-inset-bottom" />
     </nav>
   )
 }
