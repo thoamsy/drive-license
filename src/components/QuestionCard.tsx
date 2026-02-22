@@ -127,7 +127,10 @@ export function QuestionCard({
         {isAnswered && question.explanation && (
           <div className="mt-4 p-3 rounded-lg bg-muted">
             <p className="text-xs font-medium text-muted-foreground mb-1">解析</p>
-            <p className="text-sm leading-relaxed">{question.explanation}</p>
+            <p
+              className="text-sm leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: question.explanation }}
+            />
           </div>
         )}
       </div>

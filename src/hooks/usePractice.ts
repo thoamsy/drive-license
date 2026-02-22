@@ -16,6 +16,8 @@ interface UsePracticeOptions {
   chapterId?: string
 }
 
+const RANDOM_QUESTION_LIMIT = 50
+
 export function usePractice({ subject, mode, chapterId }: UsePracticeOptions) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
@@ -29,7 +31,7 @@ export function usePractice({ subject, mode, chapterId }: UsePracticeOptions) {
       qs = getQuestions(subject)
     }
     if (mode === 'random') {
-      qs = shuffleArray(qs)
+      qs = shuffleArray(qs).slice(0, RANDOM_QUESTION_LIMIT)
     }
     return qs
   }, [subject, mode, chapterId])
@@ -38,33 +40,8 @@ export function usePractice({ subject, mode, chapterId }: UsePracticeOptions) {
   const isFirst = currentIndex === 0
   const isLast = currentIndex === questions.length - 1
 
-  // Save progress to DB when index changes
-  useEffect(() => {
-    if (questions.length === 0) return
-    db.practiceProgress
-      .where('[subject+mode+chapterId]')
-      .equals([subject, mode, chapterId ?? ''])
-      .first()
-      .then((existing) => {
-        if (existing?.id) {
-          db.practiceProgress.update(existing.id, {
-            currentIndex,
-            updatedAt: new Date(),
-          })
-        } else {
-          db.practiceProgress.add({
-            subject,
-            mode,
-            chapterId,
-            currentIndex,
-            questionIds: questions.map((q) => q.id),
-            updatedAt: new Date(),
-          })
-        }
-      })
-  }, [currentIndex, subject, mode, chapterId, questions])
-
-  // Restore progress on mount (sequential mode)
+  // Restore progress on mount (sequential mode only)
+  // 不用 useEffect 保存，避免初始 index=0 覆盖已保存进度的竞态问题
   useEffect(() => {
     if (mode !== 'sequential') return
     db.practiceProgress
@@ -72,11 +49,35 @@ export function usePractice({ subject, mode, chapterId }: UsePracticeOptions) {
       .equals([subject, mode, chapterId ?? ''])
       .first()
       .then((saved) => {
-        if (saved && saved.currentIndex < questions.length) {
+        if (saved && saved.currentIndex > 0 && saved.currentIndex < questions.length) {
           setCurrentIndex(saved.currentIndex)
         }
       })
   }, [subject, mode, chapterId, questions.length])
+
+  // 仅在顺序模式下保存进度（由 goNext/goPrev 主动触发，避免竞态）
+  const saveProgress = useCallback(
+    async (index: number) => {
+      if (mode !== 'sequential') return
+      const existing = await db.practiceProgress
+        .where('[subject+mode+chapterId]')
+        .equals([subject, mode, chapterId ?? ''])
+        .first()
+      if (existing?.id) {
+        await db.practiceProgress.update(existing.id, { currentIndex: index, updatedAt: new Date() })
+      } else {
+        await db.practiceProgress.add({
+          subject,
+          mode,
+          chapterId,
+          currentIndex: index,
+          questionIds: questions.map((q) => q.id),
+          updatedAt: new Date(),
+        })
+      }
+    },
+    [subject, mode, chapterId, questions]
+  )
 
   const selectAnswer = useCallback(
     async (key: string) => {
@@ -97,17 +98,34 @@ export function usePractice({ subject, mode, chapterId }: UsePracticeOptions) {
 
   const goNext = useCallback(() => {
     if (isLast) return
-    setCurrentIndex((i) => i + 1)
+    const newIndex = currentIndex + 1
+    setCurrentIndex(newIndex)
     setSelectedAnswer(null)
     setIsAnswered(false)
-  }, [isLast])
+    saveProgress(newIndex)
+  }, [isLast, currentIndex, saveProgress])
 
   const goPrev = useCallback(() => {
     if (isFirst) return
-    setCurrentIndex((i) => i - 1)
+    const newIndex = currentIndex - 1
+    setCurrentIndex(newIndex)
     setSelectedAnswer(null)
     setIsAnswered(false)
-  }, [isFirst])
+    saveProgress(newIndex)
+  }, [isFirst, currentIndex, saveProgress])
+
+  const resetProgress = useCallback(async () => {
+    const existing = await db.practiceProgress
+      .where('[subject+mode+chapterId]')
+      .equals([subject, mode, chapterId ?? ''])
+      .first()
+    if (existing?.id) {
+      await db.practiceProgress.update(existing.id, { currentIndex: 0, updatedAt: new Date() })
+    }
+    setCurrentIndex(0)
+    setSelectedAnswer(null)
+    setIsAnswered(false)
+  }, [subject, mode, chapterId])
 
   const getChapterName = useCallback(() => {
     if (!chapterId) return undefined
@@ -125,6 +143,7 @@ export function usePractice({ subject, mode, chapterId }: UsePracticeOptions) {
     selectAnswer,
     goNext,
     goPrev,
+    resetProgress,
     chapterName: getChapterName(),
   }
 }
