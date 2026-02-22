@@ -71,7 +71,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor-router': ['@tanstack/react-router'],
-          'vendor-ui': ['lucide-react', 'radix-ui', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          'vendor-ui': ['lucide-react', '@base-ui/react', 'class-variance-authority', 'clsx', 'tailwind-merge'],
           'vendor-db': ['dexie', 'dexie-react-hooks'],
         },
       },
