@@ -3,7 +3,6 @@ import { ArrowLeft, ChevronLeft, ChevronRight, Clock, Grid3X3 } from 'lucide-rea
 import { useState } from 'react'
 import { AnswerSheet } from '@/components/AnswerSheet'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { useExam } from '@/hooks/useExam'
 import { SUBJECTS } from '@/types/question'
@@ -31,45 +30,45 @@ function ExamPage() {
   if (status === 'idle') {
     return (
       <div className="h-full overflow-y-auto">
-      <div className="p-4 space-y-4">
-        <div className="flex items-center gap-2 pt-2">
+        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white px-5 pt-10 pb-8">
           <Link to="/subject/$id" params={{ id: subjectId }}>
-            <Button variant="ghost" size="icon" className="-ml-2">
-              <ArrowLeft className="w-5 h-5" />
-            </Button>
+            <button className="flex items-center gap-1 text-white/80 hover:text-white mb-4 transition-colors text-sm">
+              <ArrowLeft className="w-4 h-4" />
+              返回
+            </button>
           </Link>
-          <h1 className="text-xl font-bold">模拟考试</h1>
+          <h1 className="text-2xl font-bold">模拟考试</h1>
+          <p className="text-sm opacity-75 mt-1">严格模拟真实考试环境</p>
         </div>
 
-        <Card>
-          <CardContent className="pt-4 space-y-3">
+        <div className="px-4 py-4 space-y-4">
+          <div className="bg-card rounded-2xl border border-border/40 shadow-sm p-4 space-y-4">
             <div className="grid grid-cols-2 gap-3 text-center">
-              <div className="p-3 rounded-lg bg-muted">
-                <div className="text-xl font-bold">{subject.examCount}</div>
-                <div className="text-xs text-muted-foreground">题目数量</div>
+              <div className="p-3 rounded-xl bg-muted/50">
+                <div className="text-2xl font-bold text-primary">{subject.examCount}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">题目数量</div>
               </div>
-              <div className="p-3 rounded-lg bg-muted">
-                <div className="text-xl font-bold">{subject.examMinutes}分钟</div>
-                <div className="text-xs text-muted-foreground">考试时间</div>
+              <div className="p-3 rounded-xl bg-muted/50">
+                <div className="text-2xl font-bold text-primary">{subject.examMinutes}<span className="text-sm font-normal ml-0.5">分钟</span></div>
+                <div className="text-xs text-muted-foreground mt-0.5">考试时间</div>
               </div>
-              <div className="p-3 rounded-lg bg-muted">
-                <div className="text-xl font-bold">{subject.passScore}分</div>
-                <div className="text-xs text-muted-foreground">及格分数</div>
+              <div className="p-3 rounded-xl bg-muted/50">
+                <div className="text-2xl font-bold text-amber-500">{subject.passScore}<span className="text-sm font-normal ml-0.5">分</span></div>
+                <div className="text-xs text-muted-foreground mt-0.5">及格分数</div>
               </div>
-              <div className="p-3 rounded-lg bg-muted">
-                <div className="text-xl font-bold">{subject.totalScore}分</div>
-                <div className="text-xs text-muted-foreground">满分</div>
+              <div className="p-3 rounded-xl bg-muted/50">
+                <div className="text-2xl font-bold">{subject.totalScore}<span className="text-sm font-normal ml-0.5">分</span></div>
+                <div className="text-xs text-muted-foreground mt-0.5">满分</div>
               </div>
             </div>
             <p className="text-sm text-muted-foreground text-center">
               题目将从题库中随机抽取，每次考试题目不同
             </p>
-            <Button className="w-full" size="lg" onClick={startExam}>
+            <Button className="w-full rounded-xl" size="lg" onClick={startExam}>
               开始考试
             </Button>
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </div>
       </div>
     )
   }
@@ -77,74 +76,73 @@ function ExamPage() {
   if (status === 'submitted') {
     return (
       <div className="h-full overflow-y-auto">
-      <div className="p-4 space-y-4">
-        <div className="flex items-center gap-2 pt-2">
+        {/* Result header */}
+        <div
+          className={cn(
+            'px-5 pt-10 pb-8 text-white',
+            passed
+              ? 'bg-gradient-to-br from-green-500 to-emerald-600'
+              : 'bg-gradient-to-br from-red-500 to-rose-600'
+          )}
+        >
           <Link to="/subject/$id" params={{ id: subjectId }}>
-            <Button variant="ghost" size="icon" className="-ml-2">
-              <ArrowLeft className="w-5 h-5" />
-            </Button>
+            <button className="flex items-center gap-1 text-white/80 hover:text-white mb-4 transition-colors text-sm">
+              <ArrowLeft className="w-4 h-4" />
+              返回
+            </button>
           </Link>
-          <h1 className="text-xl font-bold">考试结果</h1>
+          <div className="text-6xl font-black tabular-nums">{score}</div>
+          <div className="text-white/70 mt-1">满分 {subject.totalScore} 分 · 及格线 {subject.passScore} 分</div>
+          <div className="mt-3 inline-block bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-semibold">
+            {passed ? '恭喜通过！' : '未通过，继续努力'}
+          </div>
         </div>
 
-        <Card>
-          <CardContent className="pt-6 pb-6 text-center space-y-4">
-            <div
-              className={cn(
-                'text-6xl font-bold',
-                passed ? 'text-green-600' : 'text-destructive'
-              )}
-            >
-              {score}
-            </div>
-            <div className="text-muted-foreground">满分 {subject.totalScore} 分</div>
-            <div
-              className={cn(
-                'text-xl font-semibold px-4 py-2 rounded-full inline-block',
-                passed
-                  ? 'bg-green-100 text-green-700'
-                  : 'bg-red-100 text-destructive'
-              )}
-            >
-              {passed ? '恭喜通过！' : '未通过，继续努力'}
-            </div>
-            <p className="text-sm text-muted-foreground">
-              及格线：{subject.passScore} 分
-            </p>
-          </CardContent>
-        </Card>
-
-        {/* Answer review */}
-        <div className="space-y-2">
-          <h2 className="text-sm font-medium text-muted-foreground">答题详情</h2>
-          {questions.map((q, i) => {
-            const userAnswer = answers[q.id]
-            const isCorrect = userAnswer === q.answer
-            return (
-              <Card key={q.id} className={cn('border', isCorrect ? 'border-green-200' : 'border-red-200')}>
-                <CardContent className="pt-3 pb-3">
-                  <div className="flex items-start gap-2">
-                    <span className="text-xs text-muted-foreground flex-shrink-0 mt-0.5">
-                      {i + 1}.
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm line-clamp-2">{q.content}</p>
-                      <div className="flex gap-3 mt-1 text-xs">
-                        <span className={isCorrect ? 'text-green-600' : 'text-destructive'}>
-                          我的答案：{userAnswer ?? '未作答'}
-                        </span>
-                        {!isCorrect && (
-                          <span className="text-green-600">正确答案：{q.answer}</span>
+        <div className="px-4 py-4 space-y-4">
+          {/* Answer review */}
+          <div className="space-y-2">
+            <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">
+              答题详情
+            </h2>
+            <div className="space-y-2">
+              {questions.map((q, i) => {
+                const userAnswer = answers[q.id]
+                const isCorrect = userAnswer === q.answer
+                return (
+                  <div
+                    key={q.id}
+                    className={cn(
+                      'bg-card rounded-2xl border shadow-sm p-4',
+                      isCorrect ? 'border-green-200' : 'border-red-200'
+                    )}
+                  >
+                    <div className="flex items-start gap-2">
+                      <span
+                        className={cn(
+                          'w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5',
+                          isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'
                         )}
+                      >
+                        {i + 1}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm line-clamp-2 leading-snug">{q.content}</p>
+                        <div className="flex gap-3 mt-1.5 text-xs">
+                          <span className={isCorrect ? 'text-green-600 font-medium' : 'text-red-500 font-medium'}>
+                            我：{userAnswer ?? '未作答'}
+                          </span>
+                          {!isCorrect && (
+                            <span className="text-green-600 font-medium">正确：{q.answer}</span>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            )
-          })}
+                )
+              })}
+            </div>
+          </div>
         </div>
-      </div>
       </div>
     )
   }
@@ -204,7 +202,7 @@ function ExamPage() {
                     className="w-full rounded-lg object-contain max-h-48"
                   />
                 )}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {currentQuestion.options.map((option) => {
                     const isSelected = answers[currentQuestion.id] === option.key
                     return (
@@ -212,14 +210,23 @@ function ExamPage() {
                         key={option.key}
                         onClick={() => selectAnswer(currentQuestion.id, option.key)}
                         className={cn(
-                          'w-full flex items-center gap-3 p-3 rounded-lg border text-left transition-colors',
+                          'w-full flex items-center gap-3 px-3 py-3 rounded-xl border-2 text-left transition-all active:scale-[0.99]',
                           isSelected
-                            ? 'border-primary bg-primary/5 font-medium'
-                            : 'border-border bg-background'
+                            ? 'border-primary bg-primary/5'
+                            : 'border-transparent bg-muted/60 hover:bg-muted'
                         )}
                       >
-                        <span className="font-bold text-sm w-5 flex-shrink-0">{option.key}</span>
-                        <span className="text-sm">{option.text}</span>
+                        <span
+                          className={cn(
+                            'w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 transition-colors',
+                            isSelected
+                              ? 'bg-primary text-primary-foreground'
+                              : 'bg-border text-muted-foreground'
+                          )}
+                        >
+                          {option.key}
+                        </span>
+                        <span className="text-sm leading-snug">{option.text}</span>
                       </button>
                     )
                   })}

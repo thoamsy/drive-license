@@ -6,9 +6,17 @@ import subject1Chapters from '@/data/subject1/chapters.json'
 import subject4Questions from '@/data/subject4/questions.json'
 import subject4Chapters from '@/data/subject4/chapters.json'
 
+// Keywords in question content that indicate an image is required
+const IMAGE_KEYWORDS = /如图|图中|图示|下图|上图|看图/
+
+function needsImage(question: Question): boolean {
+  if (question.image) return true
+  return IMAGE_KEYWORDS.test(question.content)
+}
+
 const questionsMap: Record<string, Question[]> = {
-  subject1: subject1Questions as Question[],
-  subject4: subject4Questions as Question[],
+  subject1: (subject1Questions as Question[]).filter((q) => !needsImage(q)),
+  subject4: (subject4Questions as Question[]).filter((q) => !needsImage(q)),
 }
 
 const chaptersMap: Record<string, Chapter[]> = {
